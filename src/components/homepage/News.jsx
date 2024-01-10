@@ -6,7 +6,7 @@ import NewsCard from './NewsCard';
 import { NewsSection } from '../../styles/HomePageStyles';
 
 // Mui
-import { Box, Typography, Stack, Container } from '@mui/material/';
+import { Typography, Stack, Container } from '@mui/material/';
 
 function News() {
   const [news, setNews] = useState(undefined);

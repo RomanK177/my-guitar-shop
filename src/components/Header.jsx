@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import AppContext from '../contexts/AppContext';
 
 // Mui
 import theme from '../styles/CustomTheme';
@@ -8,8 +10,8 @@ import {
   Typography,
   Stack,
   Container,
-  Link,
   List,
+  Link,
   Button,
   ListItem,
   ListItemButton,
@@ -27,7 +29,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import { HeaderWrapper, Logo } from '../styles/HeaderStyles';
 
 function Header() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { openDrawer, setOpenDrawer } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -39,12 +41,11 @@ function Header() {
   ];
 
   const toggleDrawer = (open) => (event) => {
-    console.log('🚀 ~ file: Header.jsx:33 ~ toggleDrawer ~ open:', open);
     if (event.key === 'Tab' || event.key === 'Shift') {
       return;
     }
 
-    setDrawerOpen(open);
+    setOpenDrawer(open);
   };
 
   return (
@@ -80,12 +81,12 @@ function Header() {
             <MenuIcon sx={{ fill: 'white' }} />
           </Button>
         </Stack>
-        <Drawer anchor='right' open={drawerOpen} onClose={toggleDrawer(false)}>
+        <Drawer anchor='right' open={openDrawer} onClose={toggleDrawer(false)}>
           <Box
             sx={{ width: 250 }}
             role='presentation'
-            // onClick={toggleDrawer(false)}
-            // onKeyDown={toggleDrawer()}
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer()}
           >
             <List>
               {menuItems.map((menuItem, index) => (
@@ -93,8 +94,8 @@ function Header() {
                   key={menuItem.text}
                   disablePadding
                   onClick={() => {
-                    console.log('sss');
                     //   toggleDrawer(false);
+                    toggleDrawer(false);
                     navigate(menuItem.link);
                   }}
                 >

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkmy_guitar_shop=self.webpackChunkmy_guitar_shop||[]).push([[762],{1762:(r,e,s)=>{s.r(e),s.d(e,{default:()=>n});s(2791);var u=s(184);const n=function(){return(0,u.jsx)("div",{children:"ErrorScreen"})}}}]);
-//# sourceMappingURL=762.25dde882.chunk.js.map

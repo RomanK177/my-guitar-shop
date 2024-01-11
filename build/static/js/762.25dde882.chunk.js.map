@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/762.25dde882.chunk.js","mappings":"kKAMA,QAJA,WACE,OAAOA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,eACd,C","sources":["pages/ErrorScreen.jsx"],"sourcesContent":["import React from 'react';\r\n\r\nfunction ErrorScreen() {\r\n  return <div>ErrorScreen</div>;\r\n}\r\n\r\nexport default ErrorScreen;\r\n"],"names":["_jsx","children"],"sourceRoot":""}

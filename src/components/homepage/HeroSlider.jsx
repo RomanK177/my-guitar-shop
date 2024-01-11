@@ -37,8 +37,10 @@ function HeroSlider() {
       <SwiperSlide className={classes.heroSlide}>
         <Box component='img' style={HeroSliderImage} src={Slide1} />
         <Stack className='absolute-center'>
-          <Typography variant='headline1'>Advanced Acoustic</Typography>
-          <Typography variant='headline2'>
+          <Typography variant='headline1' align='center'>
+            Advanced Acoustic
+          </Typography>
+          <Typography variant='headline2' align='center'>
             Reimagining the Acoustic Experience
           </Typography>
         </Stack>
@@ -46,8 +48,10 @@ function HeroSlider() {
       <SwiperSlide className={classes.heroSlide}>
         <Box component='img' style={HeroSliderImage} src={Slide2} />
         <Stack className='absolute-center'>
-          <Typography variant='headline1'>AZ ESSENTIALS</Typography>
-          <Typography variant='headline2'>
+          <Typography variant='headline1' align='center'>
+            AZ ESSENTIALS
+          </Typography>
+          <Typography variant='headline2' align='center'>
             - Your journey starts here
           </Typography>
         </Stack>
@@ -55,8 +59,10 @@ function HeroSlider() {
       <SwiperSlide className={classes.heroSlide}>
         <Box component='img' style={HeroSliderImage} src={Slide3} />
         <Stack className='absolute-center'>
-          <Typography variant='headline1'>The RGA622XH</Typography>
-          <Typography variant='headline2'>
+          <Typography variant='headline1' align='center'>
+            The RGA622XH
+          </Typography>
+          <Typography variant='headline2' align='center'>
             Featuring 27 Frets of Fury
           </Typography>
         </Stack>

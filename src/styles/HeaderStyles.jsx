@@ -1,4 +1,4 @@
-// import theme from './CustomTheme';
+import theme from './CustomTheme';
 import styled from '@emotion/styled';
 import { makeStyles } from '@mui/styles';
 import MuiBox from '@mui/material/Box';
@@ -70,9 +70,30 @@ export const HeaderWrapper = styled(MuiBox)`
 export const Logo = styled(MuiLink)`
   cursor: pointer;
   &:hover {
-    /* Styles for the :hover state */
     background-color: lightgray;
     color: darkblue;
-    /* Add more styles as needed */
   }
 `;
+
+export const HeaderMenu = styled(MuiBox)(({ open }) => ({
+  position: 'fixed',
+  right: 0,
+  top: '55px',
+  transition: 'all 0.3s ease-in-out',
+  backgroundColor: ' gray',
+  height: ' 100%',
+  color: 'white',
+  background: theme.palette.background.overlay,
+  transform: open ? 'translateX(0%)' : 'translateX(100%)',
+  '& .bg': {
+    cursor: 'pointer',
+    position: 'fixed',
+    right: 0,
+    background: theme.palette.background.overlay,
+    width: '100vw',
+    height: '100vh',
+    transition: 'all 0.3s ease-in-out',
+    opacity: open ? '1' : '0',
+    transform: open ? 'translateX(0%)' : 'translateX(100%)',
+  },
+}));

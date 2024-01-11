@@ -1,0 +1,45 @@
+import React, { useEffect, useState } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
+import ProductStrip from '../components/ProductStrip';
+
+// Mui
+import theme from '../styles/CustomTheme';
+import { Stack } from '@mui/material/';
+
+function ElectricGuitars() {
+  const location = useLocation();
+  const [products, setProducts] = useState([]);
+  const { slug } = useParams();
+
+  const fetchProducts = async () => {
+    try {
+      // Dynamically import the data
+      const module = await import(`../assets/data/${slug}.js`);
+
+      // Access the default export (in this case, the array of objects)
+      setProducts(module.default);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, [location.pathname]);
+
+  return (
+    <Stack
+      spacing={4}
+      useFlexGap
+      sx={{
+        background: theme.palette.background.overlay_light,
+        paddingTop: '120px',
+      }}
+    >
+      {products.map((item) => (
+        <ProductStrip key={item.id} product={item} />
+      ))}
+    </Stack>
+  );
+}
+
+export default ElectricGuitars;

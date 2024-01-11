@@ -1,6 +1,31 @@
 .App {
   //   text-align: center;
 }
+html {
+  scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #07114a;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #02082c;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ff000000;
+  }
+}
+
+body {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
 
 .absolute-center {
   position: absolute;

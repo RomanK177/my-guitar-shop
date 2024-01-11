@@ -6,7 +6,6 @@ import { Suspense, lazy } from 'react';
 
 // Context
 import CartContext from './contexts/CartContext.js';
-import AppContext from './contexts/AppContext';
 
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
@@ -16,7 +15,7 @@ import theme from './styles/CustomTheme';
 // Parts
 const Layout = lazy(() => import('./layouts/layout.jsx'));
 const HomePage = lazy(() => import('./pages/HomePage'));
-const ElectricGuitars = lazy(() => import('./pages/ElectricGuitars'));
+const Products = lazy(() => import('./pages/Products'));
 const Header = lazy(() => import('./components/Header'));
 const ErrorScreen = lazy(() => import('./pages/ErrorScreen'));
 
@@ -38,11 +37,11 @@ function App() {
       errorElement: <ErrorScreen />,
     },
     {
-      path: '/electric-guitars',
+      path: '/products/:slug',
       element: (
         <Suspense fallback={<LinearProgress />}>
           <Layout>
-            <ElectricGuitars />
+            <Products />
           </Layout>
         </Suspense>
       ),
@@ -60,11 +59,9 @@ function App() {
   return (
     <div className='App'>
       <ThemeProvider theme={theme}>
-        <AppContext.Provider value={appContextData}>
-          <CartContext.Provider value={cartContextData}>
-            <RouterProvider router={router} />
-          </CartContext.Provider>
-        </AppContext.Provider>
+        <CartContext.Provider value={cartContextData}>
+          <RouterProvider router={router} />
+        </CartContext.Provider>
       </ThemeProvider>
     </div>
   );

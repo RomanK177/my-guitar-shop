@@ -1,7 +1,5 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import AppContext from '../contexts/AppContext';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Mui
 import theme from '../styles/CustomTheme';
@@ -15,29 +13,27 @@ import {
   Button,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Divider,
-  Drawer,
 } from '@mui/material/';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { HeaderWrapper, Logo } from '../styles/HeaderStyles';
+import { HeaderWrapper, Logo, HeaderMenu } from '../styles/HeaderStyles';
 
 function Header() {
-  const { openDrawer, setOpenDrawer } = useContext(AppContext);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
     { text: 'Home', link: '/' },
-    { text: 'Electric Guitars', link: '/electric-guitars' },
-    { text: 'Bass Guitars', link: '/bass-guitars' },
-    { text: 'Acoustic Guitars', link: '/acoustic-guitars' },
+    { text: 'Electric Guitars', link: '/products/electric-guitars' },
+    { text: 'Bass Guitars', link: '/products/bass-guitars' },
+    { text: 'Acoustic Guitars', link: '/products/acoustic-guitars' },
   ];
 
   const toggleDrawer = (open) => (event) => {
@@ -47,6 +43,9 @@ function Header() {
 
     setOpenDrawer(open);
   };
+  useEffect(() => {
+    setOpenDrawer(false);
+  }, [location.pathname]);
 
   return (
     <HeaderWrapper>
@@ -67,7 +66,11 @@ function Header() {
               <YouTubeIcon color='my_white' />
             </Link>
           </Stack>
-          <Logo href='/'>
+          <Logo
+            onClick={() => {
+              navigate('/');
+            }}
+          >
             <Typography
               component='h4'
               variant='subtitle'
@@ -77,11 +80,12 @@ function Header() {
               Guitar Shop
             </Typography>
           </Logo>
-          <Button onClick={toggleDrawer(true)}>
+          <Button onClick={toggleDrawer(!openDrawer)}>
             <MenuIcon sx={{ fill: 'white' }} />
           </Button>
         </Stack>
-        <Drawer anchor='right' open={openDrawer} onClose={toggleDrawer(false)}>
+        <HeaderMenu anchor='right' open={openDrawer}>
+          <Box className='bg' onClick={() => setOpenDrawer(false)}></Box>
           <Box
             sx={{ width: 250 }}
             role='presentation'
@@ -94,8 +98,6 @@ function Header() {
                   key={menuItem.text}
                   disablePadding
                   onClick={() => {
-                    //   toggleDrawer(false);
-                    toggleDrawer(false);
                     navigate(menuItem.link);
                   }}
                 >
@@ -106,20 +108,8 @@ function Header() {
               ))}
             </List>
             <Divider />
-            <List>
-              {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List>
           </Box>
-        </Drawer>
+        </HeaderMenu>
       </Container>
     </HeaderWrapper>
   );

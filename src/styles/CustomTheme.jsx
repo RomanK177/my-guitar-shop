@@ -47,11 +47,16 @@ const myPalette = {
     dark: '#ffffff',
     light: '#FFFFFF26',
   },
+  black: {
+    main: '#000000',
+    dark: '#000000',
+    light: '#00000025',
+  },
   background: {
     main: 'rgba(45, 200, 250, 0.25)',
     light: '#ECF5F9',
     overlay: 'rgba(0, 0, 0, 0.8)',
-    overlay_light: 'rgba(255, 255, 255, 0.40)',
+    overlay_light: 'rgba(0, 0, 0, 0.377)',
   },
 };
 
@@ -404,47 +409,12 @@ const theme = createTheme({
     MuiAccordion: {
       styleOverrides: {
         root: {
-          //   background: myPalette.secondary.dark,
-          margin: '0 !important',
-          borderRadius: '100vw !important',
-          '&::before': {
-            content: 'unset',
-          },
-          '&.Mui-expanded': {
-            // backgroundColor: 'pink !important',
-            borderRadius: '40px!important',
-            padding: '25px 12px !important',
-            '.MuiAccordionSummary-expandIconWrapper': {
-              transform: 'rotate(0deg)',
-            },
-          },
-          '.MuiAccordionSummary-expandIconWrapper': {
-            transform: 'rotate(90deg)',
-          },
+          background: 'transparent ',
+          marginBlock: '15px',
         },
       },
     },
-    MuiAccordionSummary: {
-      styleOverrides: {
-        root: {
-          background: 'white',
-          borderRadius: '100vw !important',
-          paddingInline: '12px !important',
-          '.MuiAccordionSummary-content': {
-            margin: '6px 0 !important',
-          },
-        },
-      },
-    },
-    MuiAccordionDetails: {
-      styleOverrides: {
-        root: {
-          //   background: myPalette.gray[200],
-          borderBottomLeftRadius: 'max(10px, 0.8vw)',
-          borderBottomRightRadius: 'max(10px, 0.8vw)',
-        },
-      },
-    },
+
     MuiSelect: {
       styleOverrides: {
         ...{

@@ -5,6 +5,7 @@ import ProductStrip from '../components/ProductStrip';
 // Mui
 import theme from '../styles/CustomTheme';
 import { Stack } from '@mui/material/';
+import { PageWrapperStyle } from '../styles/GeneralStyle';
 
 function ElectricGuitars() {
   const location = useLocation();
@@ -27,14 +28,7 @@ function ElectricGuitars() {
   }, [location.pathname]);
 
   return (
-    <Stack
-      spacing={4}
-      useFlexGap
-      sx={{
-        background: theme.palette.background.overlay_light,
-        paddingTop: '120px',
-      }}
-    >
+    <Stack spacing={4} useFlexGap sx={PageWrapperStyle}>
       {products.map((item) => (
         <ProductStrip key={item.id} product={item} />
       ))}

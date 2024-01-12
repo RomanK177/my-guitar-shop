@@ -1,7 +1,7 @@
 // data.js
 const products = [
   {
-    id: 1,
+    id: 4,
     name: 'SR Workshop',
     description:
       'There are three principles behind the Ibanez Prestige line: Precision, Performance, and Playability. Prestige combines high-tech manufacturing techniques with old-world Japanese craftsmanship, in order to achieve true innovation in design and construction. The series incorporates ideas and suggestions from musicians from around the world as the cornerstones of the Prestige production process.',
@@ -39,7 +39,7 @@ const products = [
     ],
   },
   {
-    id: 2,
+    id: 5,
     name: 'SR Prestige',
     description:
       'Designed to Inspire, all Ibanez Premium series are manufactured with select tone woods, high-profile electronics, hardware and dedicated skills of craftsmanship and care in details for your musical journey. The richness of sound, stunning appearance and unrivalled playability of the Ibanez Premium series will open the gate of your reservoir of inspiration.',
@@ -77,7 +77,7 @@ const products = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     name: 'SR2600',
     description:
       "The Iron Label line was originally developed with metal and nothing but metal in mind. We modded and tweaked until we got to the heaviest-hitting metal axes we’ve ever built. They’re purposefully spartan, and you won’t find a feature here that doesn't contribute directly to a bone rattling, earth shattering tones these guitars pump out. Carrying forward that same philosophy, the next generation of Iron Label guitars take this raw metal energy to a completely new level. They sport totally blacked out looks, and their supercharged electronics amounting to some of the heaviest-swinging metal axes we’ve ever produced.",

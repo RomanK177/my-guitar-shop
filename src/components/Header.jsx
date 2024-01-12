@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import CartContext from '../contexts/CartContext.js';
 
 // Mui
 import theme from '../styles/CustomTheme';
@@ -15,17 +16,19 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
+  Badge,
 } from '@mui/material/';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { HeaderWrapper, Logo, HeaderMenu } from '../styles/HeaderStyles';
 
 function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
-
+  const { cartData, setCartData } = useContext(CartContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -80,9 +83,20 @@ function Header() {
               Guitar Shop
             </Typography>
           </Logo>
-          <Button onClick={toggleDrawer(!openDrawer)}>
-            <MenuIcon sx={{ fill: 'white' }} />
-          </Button>
+          <Stack direction='row' alignItems='center'>
+            <Button
+              onClick={() => {
+                navigate('/cart');
+              }}
+            >
+              <Badge badgeContent={cartData.length} color='secondary'>
+                <ShoppingCartIcon sx={{ fill: 'white' }} />
+              </Badge>
+            </Button>
+            <Button onClick={toggleDrawer(!openDrawer)}>
+              <MenuIcon sx={{ fill: 'white' }} />
+            </Button>
+          </Stack>
         </Stack>
         <HeaderMenu anchor='right' open={openDrawer}>
           <Box className='bg' onClick={() => setOpenDrawer(false)}></Box>

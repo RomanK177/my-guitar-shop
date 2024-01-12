@@ -1,7 +1,8 @@
 import { Suspense, useContext } from 'react';
 import { LinearProgress } from '@mui/material';
-// import Footer from '../components/Footer';
+
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 import theme from '../styles/CustomTheme';
 import ScrollButton from '../components/ScrollButton.jsx';
@@ -15,7 +16,7 @@ function Layout({ children }) {
         <Header />
         {children}
         <ScrollButton />
-        {/* <Footer /> */}
+        <Footer />
       </Suspense>
     </>
   );

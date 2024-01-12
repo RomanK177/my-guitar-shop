@@ -1,7 +1,7 @@
 {
   "name": "my-guitar-shop",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://romank177.github.io/my-guitar-shop",
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -29,6 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy":"npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

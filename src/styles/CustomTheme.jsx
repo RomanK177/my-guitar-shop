@@ -227,10 +227,11 @@ const theme = createTheme({
         containedRed: {
           color: 'white',
           fontWeight: '700',
+          borderRadius: '15px',
           backgroundColor: myPalette.secondary.main,
           '&:hover': {
             backgroundColor: myPalette.secondary.main,
-            boxShadow: '0px 0px 10px 0px rgba(2, 37, 166, 0.45)',
+            boxShadow: '0px 0px 10px 0px rgba(166, 155, 2, 0.45)',
           },
         },
         containedBlue: {
@@ -275,29 +276,11 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          border: '1px solid transparent',
-          '&.light-blue': {
-            border: '1px solid rgba(15, 42, 141, 0.50)',
-            borderRadius: '100vw',
-            // fieldset: {
-            //   border: '1px solid rgba(15, 42, 141, 0.50)',
-            // },
-          },
           '&.form-input': {
-            color: myPalette.primary.dark,
+            color: myPalette.black.dark,
             backgroundColor: myPalette.primary.extra_light,
-            borderRadius: '100vw',
-
-            input: {
-              textAlign: 'left',
-            },
-
-            '*': {
-              border: '0px solid rgba(15, 42, 141, 0.50)',
-            },
-          },
-          fieldset: {
-            borderRadius: '100vw',
+            borderRadius: '10px',
+            padding: '10px 10px',
           },
         },
       },

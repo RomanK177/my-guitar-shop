@@ -1,7 +1,7 @@
 // data.js
 const products = [
   {
-    id: 1,
+    id: 7,
     name: 'ARTWOOD Traditional Acoustic',
     description:
       "The Artwood series was designed to blend the best traditional elements with modern guitar construction. Technology moves forward at a frenetic pace, and the world of guitar building is no different. In producing the Artwood series, we've respected the rich tradition of the acoustic guitar, while adding modern interpretations in our continuing search for the ultimate in guitar tone.",
@@ -39,7 +39,7 @@ const products = [
     ],
   },
   {
-    id: 2,
+    id: 8,
     name: 'ARTWOOD',
     description:
       'Designed to Inspire, all Ibanez Premium series are manufactured with select tone woods, high-profile electronics, hardware and dedicated skills of craftsmanship and care in details for your musical journey. The richness of sound, stunning appearance and unrivalled playability of the Ibanez Premium series will open the gate of your reservoir of inspiration.',
@@ -77,7 +77,7 @@ const products = [
     ],
   },
   {
-    id: 3,
+    id: 9,
     name: 'AW546',
     description:
       "The Iron Label line was originally developed with metal and nothing but metal in mind. We modded and tweaked until we got to the heaviest-hitting metal axes we’ve ever built. They’re purposefully spartan, and you won’t find a feature here that doesn't contribute directly to a bone rattling, earth shattering tones these guitars pump out. Carrying forward that same philosophy, the next generation of Iron Label guitars take this raw metal energy to a completely new level. They sport totally blacked out looks, and their supercharged electronics amounting to some of the heaviest-swinging metal axes we’ve ever produced.",

@@ -15,14 +15,13 @@ import theme from './styles/CustomTheme';
 // Parts
 const Layout = lazy(() => import('./layouts/layout.jsx'));
 const HomePage = lazy(() => import('./pages/HomePage'));
+const Cart = lazy(() => import('./pages/Cart'));
 const Products = lazy(() => import('./pages/Products'));
-const Header = lazy(() => import('./components/Header'));
 const ErrorScreen = lazy(() => import('./pages/ErrorScreen'));
 
 function App() {
   // State
   const [cartData, setCartData] = useState([]);
-  const [openDrawer, setOpenDrawer] = useState(false);
 
   const router = createBrowserRouter([
     {
@@ -31,6 +30,17 @@ function App() {
         <Suspense fallback={<LinearProgress />}>
           <Layout>
             <HomePage />
+          </Layout>
+        </Suspense>
+      ),
+      errorElement: <ErrorScreen />,
+    },
+    {
+      path: '/cart',
+      element: (
+        <Suspense fallback={<LinearProgress />}>
+          <Layout>
+            <Cart />
           </Layout>
         </Suspense>
       ),
@@ -53,8 +63,6 @@ function App() {
     cartData,
     setCartData,
   };
-
-  const appContextData = { openDrawer, setOpenDrawer };
 
   return (
     <div className='App'>

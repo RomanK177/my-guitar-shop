@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import CartContext from '../contexts/CartContext.js';
 
 // Mui
 import theme from '../styles/CustomTheme';
@@ -10,24 +11,56 @@ import {
   Typography,
   Stack,
   Container,
-  List,
-  Link,
-  Button,
-  ListItem,
-  ListItemButton,
-  ListItemText,
   Divider,
 } from '@mui/material/';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 
 function ProductStrip({ product }) {
+  const { cartData, setCartData } = useContext(CartContext);
+  const [inCart, setInCart] = useState(undefined);
+
+  const removeFromCart = async () => {
+    let index = cartData.findIndex((item) => item.id === product.id);
+    setCartData(cartData.toSpliced(index, 1));
+  };
+
+  useEffect(() => {
+    if (cartData.find((p) => p.id === product.id)) {
+      setInCart(true);
+    } else {
+      setInCart(false);
+    }
+    console.log(cartData);
+  }, [cartData.length]);
+
   return (
     <Container>
       <Stack>
-        <Typography component='h2' variant='headline' mb='20px'>
-          {product.name}
-        </Typography>
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='space-between'
+        >
+          <Typography component='h2' variant='headline' mb='20px'>
+            {product.name}
+          </Typography>
+          {inCart ? (
+            <RemoveShoppingCartIcon
+              onClick={removeFromCart}
+              sx={{ cursor: 'pointer' }}
+            />
+          ) : (
+            <AddShoppingCartIcon
+              onClick={() => {
+                setCartData([...cartData, product]);
+                // setInCart(true);
+              }}
+              sx={{ cursor: 'pointer' }}
+            />
+          )}
+        </Stack>
         <Box component='img' src={product.image} />
         <Typography
           component='p'
@@ -86,6 +119,7 @@ function ProductStrip({ product }) {
           </AccordionDetails>
         </Accordion>
       </Stack>
+      <Divider />
     </Container>
   );
 }

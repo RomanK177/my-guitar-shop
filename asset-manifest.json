@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-guitar-shop/static/css/main.9d77e07c.css",
-    "main.js": "/my-guitar-shop/static/js/main.113694e6.js",
+    "main.js": "/my-guitar-shop/static/js/main.398c826a.js",
     "static/js/159.58696f2e.chunk.js": "/my-guitar-shop/static/js/159.58696f2e.chunk.js",
     "static/css/686.09e89086.chunk.css": "/my-guitar-shop/static/css/686.09e89086.chunk.css",
     "static/js/686.ceea3b73.chunk.js": "/my-guitar-shop/static/js/686.ceea3b73.chunk.js",
@@ -23,7 +23,7 @@
     "static/media/top_AZES.jpg": "/my-guitar-shop/static/media/top_AZES.60eaabc353122616aa98.jpg",
     "index.html": "/my-guitar-shop/index.html",
     "main.9d77e07c.css.map": "/my-guitar-shop/static/css/main.9d77e07c.css.map",
-    "main.113694e6.js.map": "/my-guitar-shop/static/js/main.113694e6.js.map",
+    "main.398c826a.js.map": "/my-guitar-shop/static/js/main.398c826a.js.map",
     "159.58696f2e.chunk.js.map": "/my-guitar-shop/static/js/159.58696f2e.chunk.js.map",
     "686.09e89086.chunk.css.map": "/my-guitar-shop/static/css/686.09e89086.chunk.css.map",
     "686.ceea3b73.chunk.js.map": "/my-guitar-shop/static/js/686.ceea3b73.chunk.js.map",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.9d77e07c.css",
-    "static/js/main.113694e6.js"
+    "static/js/main.398c826a.js"
   ]
 }

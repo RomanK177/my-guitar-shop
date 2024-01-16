@@ -49,7 +49,10 @@ function News() {
           Latest News
         </Typography>
         <Stack direction='row'>
-          {news && news.map((article) => <NewsCard article={article} />)}
+          {news &&
+            news.map((article, idx) => (
+              <NewsCard key={idx} article={article} />
+            ))}
         </Stack>
       </Container>
     </NewsSection>

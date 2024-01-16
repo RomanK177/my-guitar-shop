@@ -3,17 +3,7 @@ import CartContext from '../contexts/CartContext.js';
 import ProductStrip from '../components/ProductStrip';
 
 // Mui
-import theme from '../styles/CustomTheme';
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Typography,
-  Stack,
-  Container,
-  Divider,
-} from '@mui/material/';
+import { Box, Typography, Stack, Container, Divider } from '@mui/material/';
 import { PageWrapperStyle } from '../styles/GeneralStyle';
 
 function Cart() {

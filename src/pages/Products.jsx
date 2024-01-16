@@ -3,7 +3,6 @@ import { useParams, useLocation } from 'react-router-dom';
 import ProductStrip from '../components/ProductStrip';
 
 // Mui
-import theme from '../styles/CustomTheme';
 import { Stack } from '@mui/material/';
 import { PageWrapperStyle } from '../styles/GeneralStyle';
 
@@ -15,10 +14,10 @@ function ElectricGuitars() {
   const fetchProducts = async () => {
     try {
       // Dynamically import the data
-      const module = await import(`../assets/data/${slug}.js`);
+      const products = await import(`../assets/data/${slug}.js`);
 
       // Access the default export (in this case, the array of objects)
-      setProducts(module.default);
+      setProducts(products.default);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

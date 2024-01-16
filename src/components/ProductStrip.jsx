@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import CartContext from '../contexts/CartContext.js';
+import ImageZoom from 'react-image-zooom';
 
 // Mui
 import theme from '../styles/CustomTheme';
@@ -16,14 +17,23 @@ import {
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import { ZoomImageWrapper } from '../styles/GeneralStyle';
 
 function ProductStrip({ product }) {
   const { cartData, setCartData } = useContext(CartContext);
   const [inCart, setInCart] = useState(undefined);
+  const image = useRef();
 
   const removeFromCart = async () => {
     let index = cartData.findIndex((item) => item.id === product.id);
-    setCartData(cartData.toSpliced(index, 1));
+    let newCart = cartData.toSpliced(index, 1);
+    setCartData(newCart);
+    localStorage.setItem('cartData', JSON.stringify(newCart));
+  };
+  const AddToCart = async () => {
+    let newCart = [...cartData, product];
+    setCartData(newCart);
+    localStorage.setItem('cartData', JSON.stringify(newCart));
   };
 
   useEffect(() => {
@@ -32,7 +42,6 @@ function ProductStrip({ product }) {
     } else {
       setInCart(false);
     }
-    console.log(cartData);
   }, [cartData.length]);
 
   return (
@@ -53,15 +62,19 @@ function ProductStrip({ product }) {
             />
           ) : (
             <AddShoppingCartIcon
-              onClick={() => {
-                setCartData([...cartData, product]);
-                // setInCart(true);
-              }}
+              onClick={AddToCart}
               sx={{ cursor: 'pointer' }}
             />
           )}
         </Stack>
-        <Box component='img' src={product.image} />
+        <ZoomImageWrapper>
+          <ImageZoom
+            src={product.image}
+            ref={image}
+            style={{ background: 'transparent' }}
+            zoom='200'
+          />
+        </ZoomImageWrapper>
         <Typography
           component='p'
           variant='runningText1'
@@ -86,34 +99,37 @@ function ProductStrip({ product }) {
           <AccordionDetails>
             <Stack spacing={3}>
               {product.features.map((feature) => (
-                <Stack
-                  direction='row'
-                  justifyContent='space-between'
-                  spacing={2}
-                >
-                  <Box>
-                    <Typography
-                      component='h3'
-                      variant='headline1'
-                      color='black !important'
-                    >
-                      {feature.title}
-                    </Typography>
-                    <Typography
-                      mt='25px'
-                      component='p'
-                      variant='runningText2'
-                      color='black !important'
-                    >
-                      {feature.text}
-                    </Typography>
-                  </Box>
-                  <Box
-                    component='img'
-                    src={feature.image}
-                    sx={{ width: '30%' }}
-                  />
-                </Stack>
+                <Box>
+                  <Stack
+                    direction='row'
+                    justifyContent='space-between'
+                    spacing={2}
+                  >
+                    <Box>
+                      <Typography
+                        component='h3'
+                        variant='headline1'
+                        color='black !important'
+                      >
+                        {feature.title}
+                      </Typography>
+                      <Typography
+                        mt='25px'
+                        component='p'
+                        variant='runningText2'
+                        color='black !important'
+                      >
+                        {feature.text}
+                      </Typography>
+                    </Box>
+                    <Box
+                      component='img'
+                      src={feature.image}
+                      sx={{ width: '30%' }}
+                    />
+                  </Stack>
+                  <Divider sx={{ marginBlock: '25px' }} />
+                </Box>
               ))}
             </Stack>
           </AccordionDetails>

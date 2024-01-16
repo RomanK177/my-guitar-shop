@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Mui
-import theme from '../styles/CustomTheme';
+
 import {
   Box,
   Typography,
@@ -83,11 +83,8 @@ function Footer() {
               />
             </Stack>
             <Button
-              // fullWidth
               variant='containedRed'
               type='submit'
-              //   color='button'
-              //   size='large'
               sx={{ marginInline: 'auto' }}
             >
               Send

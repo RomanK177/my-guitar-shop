@@ -31,8 +31,6 @@ function HeroSlider() {
       modules={[Autoplay]}
       slidesPerView={1}
       autoplay={true}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide className={classes.heroSlide}>
         <Box component='img' style={HeroSliderImage} src={Slide1} />

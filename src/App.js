@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.scss';
 
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
+
 import { Suspense, lazy } from 'react';
 
 // Context
@@ -20,10 +21,12 @@ const Products = lazy(() => import('./pages/Products'));
 const ErrorScreen = lazy(() => import('./pages/ErrorScreen'));
 
 function App() {
+  const localCart = JSON.parse(localStorage.getItem('cartData'));
+  console.log('🚀 ~ App ~ localCart:', localCart);
   // State
-  const [cartData, setCartData] = useState([]);
+  const [cartData, setCartData] = useState(localCart ? localCart : []);
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: '/',
       element: (

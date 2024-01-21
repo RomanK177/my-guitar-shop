@@ -14,5 +14,6 @@ export const ZoomImageWrapper = styled(MuiBox)(({ theme }) => ({
     borderRadius: '5px',
     background: theme.palette.background.overlay_light,
     border: '1px solid black',
+    boxSizing: 'border-box',
   },
 }));

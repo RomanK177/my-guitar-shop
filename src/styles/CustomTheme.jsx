@@ -99,7 +99,7 @@ const theme = createTheme({
       color: myPalette.primary.dark,
     },
     headline1: {
-      fontSize: '48px',
+      fontSize: 'min(48px, 8vw)',
       fontWeight: 400,
       color: 'white',
     },
@@ -210,8 +210,6 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        lineHeight: 1,
-
         // Name of the slot
         containedWhite: {
           color: myPalette.primary.main,
@@ -269,6 +267,8 @@ const theme = createTheme({
           paddingInline: '24px',
           borderRadius: '100vw',
           fontSize: '1rem',
+          minWidth: 'unset',
+          lineHeight: 1,
         },
       },
     },

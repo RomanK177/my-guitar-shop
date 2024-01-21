@@ -64,11 +64,16 @@ export const HeaderWrapper = styled(MuiBox)`
   background-color: #fff;
   z-index: 2;
   padding: 10px;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: 10px 2px;
+  }
   background: ${({ theme }) => theme.palette.background.overlay};
 `;
 
 export const Logo = styled(MuiLink)`
   cursor: pointer;
+  padding-bottom: 10px;
+  background-color: transparent !important;
   &:hover {
     background-color: lightgray;
     color: darkblue;

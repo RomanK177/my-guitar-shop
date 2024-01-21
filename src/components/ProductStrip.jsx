@@ -3,7 +3,6 @@ import CartContext from '../contexts/CartContext.js';
 import ImageZoom from 'react-image-zooom';
 
 // Mui
-import theme from '../styles/CustomTheme';
 import {
   Accordion,
   AccordionDetails,
@@ -101,11 +100,11 @@ function ProductStrip({ product }) {
               {product.features.map((feature) => (
                 <Box>
                   <Stack
-                    direction='row'
+                    direction={{ sm: 'row', xs: 'column' }}
                     justifyContent='space-between'
                     spacing={2}
                   >
-                    <Box>
+                    <Box sx={{ width: { xs: '100%', sm: '70%' } }}>
                       <Typography
                         component='h3'
                         variant='headline1'
@@ -122,10 +121,11 @@ function ProductStrip({ product }) {
                         {feature.text}
                       </Typography>
                     </Box>
+
                     <Box
                       component='img'
                       src={feature.image}
-                      sx={{ width: '30%' }}
+                      sx={{ width: { xs: '100%', sm: '30%' } }}
                     />
                   </Stack>
                   <Divider sx={{ marginBlock: '25px' }} />

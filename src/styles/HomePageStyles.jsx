@@ -71,6 +71,9 @@ export const NewsSection = styled(MuiBox)`
 `;
 export const NewsCardStyle = styled(MuiStack)`
   width: 25%;
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    width: 100%;
+  }
   & img {
     width: 100%;
     transition: all 0.3s ease-in-out;

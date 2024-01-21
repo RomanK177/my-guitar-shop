@@ -48,7 +48,7 @@ function Footer() {
         <form onSubmit={handleSubmit}>
           <Stack>
             <Stack
-              direction='row'
+              direction={{ sm: 'row', xs: 'column' }}
               justifyContent='space-around'
               spacing={2}
               mb='15px'

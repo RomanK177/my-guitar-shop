@@ -48,7 +48,10 @@ function News() {
         <Typography component='h2' variant='headline2' mb='25px'>
           Latest News
         </Typography>
-        <Stack direction='row'>
+        <Stack
+          direction={{ sm: 'row', xs: 'column' }}
+          spacing={{ xs: 3, sm: 0 }}
+        >
           {news &&
             news.map((article, idx) => (
               <NewsCard key={idx} article={article} />

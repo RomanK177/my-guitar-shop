@@ -30,7 +30,6 @@ function HeroSlider() {
       }}
       modules={[Autoplay]}
       slidesPerView={1}
-      autoplay={true}
     >
       <SwiperSlide className={classes.heroSlide}>
         <Box component='img' style={HeroSliderImage} src={Slide1} />

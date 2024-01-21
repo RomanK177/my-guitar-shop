@@ -52,7 +52,7 @@ function Header() {
 
   return (
     <HeaderWrapper>
-      <Container>
+      <Container sx={{ padding: { xs: 0 } }}>
         <Stack
           direction='row'
           alignItems='center'
@@ -70,21 +70,19 @@ function Header() {
             </Link>
           </Stack>
           <Logo
+            className='absolute-center'
+            underline='none'
             onClick={() => {
               navigate('/');
             }}
           >
-            <Typography
-              component='h4'
-              variant='subtitle'
-              className='absolute-center'
-              color='white'
-            >
+            <Typography component='h4' variant='subtitle' color='white'>
               Guitar Shop
             </Typography>
           </Logo>
           <Stack direction='row' alignItems='center'>
             <Button
+              sx={{ padding: { xs: '5px' } }}
               onClick={() => {
                 navigate('/cart');
               }}
@@ -93,7 +91,10 @@ function Header() {
                 <ShoppingCartIcon sx={{ fill: 'white' }} />
               </Badge>
             </Button>
-            <Button onClick={toggleDrawer(!openDrawer)}>
+            <Button
+              onClick={toggleDrawer(!openDrawer)}
+              sx={{ padding: { xs: '5px' } }}
+            >
               <MenuIcon sx={{ fill: 'white' }} />
             </Button>
           </Stack>

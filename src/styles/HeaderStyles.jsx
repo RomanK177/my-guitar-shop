@@ -83,7 +83,7 @@ export const Logo = styled(MuiLink)`
 export const HeaderMenu = styled(MuiBox)(({ open }) => ({
   position: 'fixed',
   right: 0,
-  top: '55px',
+  top: '53px',
   transition: 'all 0.3s ease-in-out',
   backgroundColor: ' gray',
   height: ' 100%',

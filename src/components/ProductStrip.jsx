@@ -97,8 +97,8 @@ function ProductStrip({ product }) {
           </AccordionSummary>
           <AccordionDetails>
             <Stack spacing={3}>
-              {product.features.map((feature) => (
-                <Box>
+              {product.features.map((feature, idx) => (
+                <Box key={idx}>
                   <Stack
                     direction={{ sm: 'row', xs: 'column' }}
                     justifyContent='space-between'

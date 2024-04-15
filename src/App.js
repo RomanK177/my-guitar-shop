@@ -18,6 +18,7 @@ const Layout = lazy(() => import('./layouts/layout.jsx'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Products = lazy(() => import('./pages/Products'));
+const About = lazy(() => import('./pages/About'));
 const ErrorScreen = lazy(() => import('./pages/ErrorScreen'));
 
 function App() {
@@ -55,6 +56,17 @@ function App() {
         <Suspense fallback={<LinearProgress />}>
           <Layout>
             <Products />
+          </Layout>
+        </Suspense>
+      ),
+      errorElement: <ErrorScreen />,
+    },
+    {
+      path: '/about/',
+      element: (
+        <Suspense fallback={<LinearProgress />}>
+          <Layout>
+            <About />
           </Layout>
         </Suspense>
       ),

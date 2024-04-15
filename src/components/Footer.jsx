@@ -37,12 +37,7 @@ function Footer() {
       }}
     >
       <Container sx={{ padding: '50px' }}>
-        <Typography
-          align='center !important'
-          variant='headline2'
-          component='h4'
-          mb='50px'
-        >
+        <Typography align='center' variant='headline2' component='h4' mb='50px'>
           Contact Us
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -61,6 +56,7 @@ function Footer() {
                 fullWidth
                 value={name}
                 onChange={(event) => setName(event.target.value)}
+                sx={{ paddingInline: '10px' }}
               />
               <TextField
                 label='Email'

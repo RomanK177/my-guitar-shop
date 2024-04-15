@@ -37,6 +37,7 @@ function Header() {
     { text: 'Electric Guitars', link: '/products/electric-guitars' },
     { text: 'Bass Guitars', link: '/products/bass-guitars' },
     { text: 'Acoustic Guitars', link: '/products/acoustic-guitars' },
+    { text: 'About', link: '/about' },
   ];
 
   const toggleDrawer = (open) => (event) => {

@@ -55,7 +55,7 @@ const myPalette = {
     main: 'rgba(45, 200, 250, 0.25)',
     light: '#ECF5F9',
     overlay: 'rgba(0, 0, 0, 0.8)',
-    overlay_light: 'rgba(0, 0, 0, 0.377)',
+    overlay_light: '#d7d7d89d',
   },
 };
 
@@ -279,7 +279,10 @@ const theme = createTheme({
             color: myPalette.black.dark,
             backgroundColor: myPalette.primary.extra_light,
             borderRadius: '10px',
-            padding: '10px 10px',
+            padding: '10px',
+            label: {
+              marginInlineStart: '10px',
+            },
           },
         },
       },
